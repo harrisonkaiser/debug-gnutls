@@ -2044,7 +2044,7 @@ static void init_global_tls_stuff(void)
 		}
 	}
 	if (ret < 0) {
-		fprintf(stderr, "Error setting the x509 trust file: %s\n", gnutls_strerror(ret));
+		fprintf(stderr, "Error setting the x509 trust file HARRISON: %s\n", gnutls_strerror(ret));
 		exit(1);
 	} else {
 		log_msg(stdout, "Processed %d CA certificate(s).\n", ret);

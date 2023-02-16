@@ -209,7 +209,7 @@ tlssession_new (int isserver,
 						GNUTLS_X509_FMT_PEM);
       if (ret < 0)
 	{
-	  errout (s, "Error setting the x509 trust file: %s\n",
+	  errout (s, "Error setting the x509 trust file HARRISON2 : %s\n",
 		  gnutls_strerror (ret));
 	  goto error;
 	}
