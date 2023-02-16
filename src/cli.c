@@ -2017,6 +2017,7 @@ static void init_global_tls_stuff(void)
 	gnutls_certificate_set_trust_list(xcred, tlist, 0);
 
 	if (x509_cafile != NULL) {
+	  fprintf(stderr, "x509_cafile != NULL cafile: %s\n", x509_cafile);
 		ret = gnutls_x509_trust_list_add_trust_file(tlist,
                                                             x509_cafile,
                                                             NULL,
@@ -2024,7 +2025,11 @@ static void init_global_tls_stuff(void)
                                                             GNUTLS_TL_USE_IN_TLS,
                                                             0);
 	} else {
+	  	  fprintf(stderr, "x509_cafile == NULL \n");
+
 		if (insecure == 0) {
+		  	  	  fprintf(stderr, "insecure == 0 \n");
+
 			ret = gnutls_x509_trust_list_add_system_trust(tlist,
                                                                       GNUTLS_TL_USE_IN_TLS,
                                                                       0);
@@ -2033,6 +2038,8 @@ static void init_global_tls_stuff(void)
 				ret = 0;
 			}
 		} else {
+		  		  	  	  fprintf(stderr, "insecure != 0 \n");
+
 			ret = 0;
 		}
 	}
